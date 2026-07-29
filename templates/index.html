@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SunClock — Sleep Planner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="brand-mark">☀</span><span class="brand-name">SunClock</span></div>
+  <p class="tagline">Light exposure timing for better sleep</p>
+</header>
+
+<section class="search-panel">
+  <h1>Find your light schedule</h1>
+  <p class="subtext">Enter any city — get today's sunrise/sunset and exactly when to get light or start winding down.</p>
+  <form id="city-form" class="search-form">
+    <input type="text" id="city-input" placeholder="e.g. Kigali, Nairobi, London" required>
+    <button type="submit" id="search-btn">Search</button>
+  </form>
+  <div id="status-message" class="status-message"></div>
+</section>
+
+<main>
+  <section id="result-card" class="result-card" hidden>
+    <h2 id="result-place"></h2>
+    <div class="sun-grid">
+      <div class="sun-stat"><span class="label">Sunrise</span><span id="sunrise-val" class="value"></span></div>
+      <div class="sun-stat"><span class="label">Sunset</span><span id="sunset-val" class="value"></span></div>
+      <div class="sun-stat"><span class="label">Day length</span><span id="daylength-val" class="value"></span></div>
+      <div class="sun-stat"><span class="label">Solar noon</span><span id="noon-val" class="value"></span></div>
+    </div>
+    <div class="tips-box">
+      <h3>Today's sleep hygiene tips</h3>
+      <ul id="tips-list"></ul>
+    </div>
+    <button id="add-city-btn" class="secondary-btn">+ Add to comparison list</button>
+  </section>
+
+  <section class="compare-section">
+    <div class="compare-header">
+      <h2>Compare cities <span id="compare-count" class="pill">0</span></h2>
+      <div class="compare-controls">
+        <input type="text" id="filter-input" placeholder="Filter list…">
+        <select id="sort-select">
+          <option value="sunrise">Sort: Sunrise</option>
+          <option value="daylength">Sort: Day length</option>
+          <option value="name">Sort: Name (A–Z)</option>
+        </select>
+      </div>
+    </div>
+    <div id="compare-empty" class="status-message">No cities added yet — search above and click "Add to comparison list."</div>
+    <table id="compare-table" class="compare-table" hidden>
+      <thead><tr><th>City</th><th>Sunrise</th><th>Sunset</th><th>Day length</th><th></th></tr></thead>
+      <tbody id="compare-tbody"></tbody>
+    </table>
+  </section>
+
+  <section class="bedtime-section">
+    <h2>Bedtime calculator</h2>
+    <p class="subtext">Based on full 90-minute sleep cycles, not just "8 hours."</p>
+    <form id="bedtime-form" class="bedtime-form">
+      <label for="wake-time-input">I want to wake up at</label>
+      <input type="time" id="wake-time-input" value="06:30" required>
+      <button type="submit">Calculate</button>
+    </form>
+    <div id="bedtime-results" class="bedtime-results"></div>
+  </section>
+</main>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

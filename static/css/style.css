@@ -1,0 +1,58 @@
+:root {
+  --night: #10192B;
+  --surface: #17233A;
+  --surface-raised: #1E2C48;
+  --border: #2B3A54;
+  --sun: #E8A33D;
+  --dusk: #7C6BA8;
+  --text: #EDEAE3;
+  --text-dim: #9AA6BC;
+  --danger: #E8635C;
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+* { box-sizing: border-box; }
+body { margin:0; background:var(--night); color:var(--text); font-family:var(--font-body); }
+
+.topbar { display:flex; align-items:center; gap:0.8rem; padding:1.2rem 2rem; border-bottom:1px solid var(--border); }
+.brand { display:flex; align-items:center; gap:0.5rem; }
+.brand-mark { background:var(--sun); color:var(--night); padding:0.3rem 0.55rem; border-radius:50%; font-weight:700; }
+.brand-name { font-family:var(--font-display); font-weight:600; font-size:1.2rem; }
+.tagline { color:var(--text-dim); font-size:0.85rem; margin-left:auto; }
+
+.search-panel { max-width:700px; margin:0 auto; padding:3rem 2rem 1rem; text-align:center; }
+.search-panel h1 { font-family:var(--font-display); font-size:clamp(1.5rem,4vw,2.2rem); margin:0 0 0.5rem; }
+.subtext { color:var(--text-dim); font-size:0.9rem; margin:0 0 1.5rem; }
+.search-form { display:flex; gap:0.6rem; }
+.search-form input, .bedtime-form input { flex:1; background:var(--surface); border:1px solid var(--border); color:var(--text); padding:0.7rem 1rem; border-radius:8px; font-size:0.95rem; }
+.search-form button, .bedtime-form button, .secondary-btn { background:var(--sun); color:var(--night); border:none; padding:0.7rem 1.4rem; border-radius:8px; font-weight:600; cursor:pointer; }
+.secondary-btn { background:var(--dusk); color:var(--text); margin-top:1rem; }
+
+.status-message { text-align:center; color:var(--text-dim); padding:1rem 0; font-size:0.9rem; }
+.status-message.error { color:var(--danger); }
+
+main { max-width:900px; margin:0 auto; padding:0 2rem 4rem; }
+
+.result-card, .compare-section, .bedtime-section { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.5rem; margin-top:1.5rem; }
+.result-card h2 { font-family:var(--font-display); margin-top:0; }
+.sun-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:1rem; margin:1rem 0; }
+.sun-stat { background:var(--surface-raised); border:1px solid var(--border); border-radius:8px; padding:0.8rem; text-align:center; }
+.sun-stat .label { display:block; color:var(--text-dim); font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; }
+.sun-stat .value { font-family:var(--font-mono); color:var(--sun); font-size:1.1rem; }
+.tips-box ul { padding-left:1.2rem; color:var(--text-dim); line-height:1.6; }
+
+.compare-header { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.8rem; }
+.pill { background:rgba(0,0,0,0.2); border-radius:999px; padding:0.05rem 0.5rem; font-family:var(--font-mono); font-size:0.75rem; }
+.compare-controls { display:flex; gap:0.5rem; }
+.compare-controls input, .compare-controls select { background:var(--surface-raised); border:1px solid var(--border); color:var(--text); padding:0.4rem 0.6rem; border-radius:6px; font-size:0.85rem; }
+.compare-table { width:100%; border-collapse:collapse; margin-top:1rem; }
+.compare-table th, .compare-table td { padding:0.6rem; border-bottom:1px solid var(--border); text-align:left; font-size:0.9rem; }
+.compare-table th { color:var(--text-dim); font-weight:500; font-size:0.8rem; text-transform:uppercase; }
+.remove-btn { background:none; border:1px solid var(--border); color:var(--danger); border-radius:6px; cursor:pointer; padding:0.2rem 0.5rem; }
+
+.bedtime-form { display:flex; gap:0.6rem; align-items:center; margin-top:1rem; }
+.bedtime-results { margin-top:1rem; display:flex; gap:0.8rem; flex-wrap:wrap; }
+.bedtime-option { background:var(--surface-raised); border:1px solid var(--border); border-left:3px solid var(--sun); border-radius:8px; padding:0.8rem 1rem; font-family:var(--font-mono); }
+
+@media (max-width:600px){ .search-form,.bedtime-form{flex-direction:column;} .topbar{flex-direction:column;align-items:flex-start;} }
