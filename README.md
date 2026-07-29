@@ -6,7 +6,7 @@ SunClock helps people time their light exposure for better sleep. Enter any city
 - [web01](http://100.53.87.87/)
 - [web02](http://3.85.107.160/)
 - [lb01](http://100.54.239.57/)
-- [Demo Video]()
+- [Demo Video](https://youtu.be/mu_po6gXx6c)
 
 ![Web Application screenshot](<sunclock-sleep.jpg>)
 
